@@ -1,0 +1,1 @@
+# Endeca-RecordStore-Inspector
