@@ -54,7 +54,7 @@ import static com.oracle.ateam.endeca.tools.rsi.util.EndecaHelper.makeString;
  * Service for exporting RecordStores to file.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class ExportService extends Service<Void> {

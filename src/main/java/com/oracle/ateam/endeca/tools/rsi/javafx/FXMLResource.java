@@ -29,7 +29,7 @@ package com.oracle.ateam.endeca.tools.rsi.javafx;
  * An enumeration of supported FXML resources.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public enum FXMLResource {

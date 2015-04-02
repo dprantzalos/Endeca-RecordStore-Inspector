@@ -37,7 +37,7 @@ import java.util.Iterator;
  * An iterable RecordStore reader that supports both RecordReader and RecordStoreReader.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class RecordReader implements Iterator<Record> {

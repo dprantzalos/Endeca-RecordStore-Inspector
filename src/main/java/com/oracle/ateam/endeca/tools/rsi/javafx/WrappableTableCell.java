@@ -34,7 +34,7 @@ import javafx.scene.text.Text;
  * A table cell that wraps column text, and adjusts accordingly when the column is resized.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class WrappableTableCell<T> extends TableCell<T, String> implements ChangeListener<Number> {

@@ -35,7 +35,7 @@ import javafx.scene.control.TextField;
  * A specialization of JavaFX TextField that limits the size and types of characters allowed.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class LimitedTextField extends TextField {

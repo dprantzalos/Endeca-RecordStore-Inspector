@@ -39,7 +39,7 @@ import java.util.Map;
  * A export writer for Endeca Record XML files.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class XmlExporter implements Exporter {

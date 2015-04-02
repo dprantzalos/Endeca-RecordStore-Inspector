@@ -36,7 +36,7 @@ import javafx.scene.control.TextField;
  * Controller for View/Settings dialog.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class SettingsDialog extends PopupDialog {

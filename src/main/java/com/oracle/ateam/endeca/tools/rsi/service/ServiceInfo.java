@@ -42,7 +42,7 @@ import java.util.regex.Pattern;
  * Common RecordStore data used by services.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class ServiceInfo {

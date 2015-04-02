@@ -42,7 +42,7 @@ import java.util.regex.Pattern;
  * Controller for Record Details dialog.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class RecordDetailsDialog extends PopupDialog {

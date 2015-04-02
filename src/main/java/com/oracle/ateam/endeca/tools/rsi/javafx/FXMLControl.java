@@ -40,7 +40,7 @@ import java.io.IOException;
  * @param <T> the controller and root type.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class FXMLControl<T> {

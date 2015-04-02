@@ -31,7 +31,7 @@ import javafx.beans.property.SimpleStringProperty;
  * A data holder for name/value pairs.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class NameValueData implements Comparable<NameValueData> {

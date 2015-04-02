@@ -44,7 +44,7 @@ import static com.oracle.ateam.endeca.tools.rsi.util.JavaHelper.sortByValue;
  * A export writer for Comma-Separated Value (CSV) text files.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class CsvExporter implements Exporter {

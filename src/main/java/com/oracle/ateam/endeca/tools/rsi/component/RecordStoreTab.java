@@ -47,7 +47,7 @@ import static com.oracle.ateam.endeca.tools.rsi.util.FXHelper.createProgressDial
  * Controller for RecordStore tabs.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class RecordStoreTab extends Tab {

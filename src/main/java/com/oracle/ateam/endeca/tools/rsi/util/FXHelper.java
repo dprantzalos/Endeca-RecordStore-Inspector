@@ -38,7 +38,7 @@ import static com.oracle.ateam.endeca.tools.rsi.javafx.FXMLResource.FXML_PROGRES
  * A utility class for common JavaFX operations.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class FXHelper {

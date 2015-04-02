@@ -46,7 +46,7 @@ import java.util.stream.Collectors;
  * Controller for Record Generations pane.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class RecordGenerationsPane extends BorderPane {

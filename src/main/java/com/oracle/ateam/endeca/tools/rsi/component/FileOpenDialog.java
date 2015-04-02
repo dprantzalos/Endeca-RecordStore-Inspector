@@ -54,7 +54,7 @@ import static com.oracle.ateam.endeca.tools.rsi.util.FXHelper.makeWrappable;
  * Controller for File/Open dialog.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class FileOpenDialog extends PopupDialog {

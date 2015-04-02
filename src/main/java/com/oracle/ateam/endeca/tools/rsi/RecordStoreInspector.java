@@ -53,7 +53,7 @@ import static com.oracle.ateam.endeca.tools.rsi.util.FXHelper.createProgressDial
  * The main driver for the Endeca RecordStore Inspector application.
  *
  * @author Jim Prantzalos
- * @version $Revision$ $Date$
+ * @version 1.0
  * @since R1.0
  */
 public class RecordStoreInspector extends Application {
