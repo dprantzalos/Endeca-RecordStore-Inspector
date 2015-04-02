@@ -1,7 +1,3 @@
-code {
-  background-color: #ffffff;
-}
-
 # Endeca RecordStore Inspector
 
 The Endeca RecordStore Inspector is a GUI tool for visualizing the contents of Endeca RecordStores. It was created
