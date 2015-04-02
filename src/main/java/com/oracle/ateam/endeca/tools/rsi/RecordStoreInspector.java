@@ -66,6 +66,12 @@ public class RecordStoreInspector extends Application {
     @FXML
     private TabPane mainTabPane;
 
+    /**
+     * The main entry point for this JavaFX application.
+     *
+     * @param primaryStage the primary stage for this application.
+     * @throws Exception
+     */
     @Override
     public void start(final Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
@@ -77,6 +83,9 @@ public class RecordStoreInspector extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Called when the "File -> Open Record Store" menu option is selected.
+     */
     @FXML
     protected void onFileOpen(final ActionEvent event) {
         if (event.getSource() instanceof MenuItem) {
@@ -103,8 +112,11 @@ public class RecordStoreInspector extends Application {
         }
     }
 
+    /**
+     * Called when the "File -> Open Record XML" menu option is selected.
+     */
     @FXML
-    public void onFileOpenXML(final ActionEvent event) {
+    protected void onFileOpenXML(final ActionEvent event) {
         if (event.getSource() instanceof MenuItem) {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Open XML Records File");
@@ -128,8 +140,11 @@ public class RecordStoreInspector extends Application {
         }
     }
 
+    /**
+     * Called when the "File -> Export To File" menu option is selected.
+     */
     @FXML
-    public void onFileExport(final ActionEvent event) {
+    protected void onFileExport(final ActionEvent event) {
         if (event.getSource() instanceof MenuItem && mainTabPane.getTabs().size() > 0) {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Export To File");
@@ -159,6 +174,9 @@ public class RecordStoreInspector extends Application {
         }
     }
 
+    /**
+     * Called when the "File -> Exit" menu option is selected.
+     */
     @FXML
     protected void onFileExit(final ActionEvent event) {
         if (event.getSource() instanceof MenuItem) {
@@ -166,6 +184,9 @@ public class RecordStoreInspector extends Application {
         }
     }
 
+    /**
+     * Called when the "View -> Settings" menu option is selected.
+     */
     @FXML
     protected void onViewSettings(final ActionEvent event) {
         if (event.getSource() instanceof MenuItem) {
@@ -176,6 +197,9 @@ public class RecordStoreInspector extends Application {
         }
     }
 
+    /**
+     * Called when the "Help -> About" menu option is selected.
+     */
     @FXML
     protected void onHelpAbout(final ActionEvent event) {
         if (event.getSource() instanceof MenuItem) {
@@ -186,6 +210,9 @@ public class RecordStoreInspector extends Application {
         }
     }
 
+    /**
+     * Launch the app.
+     */
     public static void main(final String[] args) {
         launch(args);
     }

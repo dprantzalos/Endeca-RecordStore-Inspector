@@ -51,7 +51,8 @@ import java.util.Set;
 import static com.oracle.ateam.endeca.tools.rsi.util.EndecaHelper.makeString;
 
 /**
- * Service for exporting RecordStores to file.
+ * Service for exporting record stores to file. This service exports the contents of a selected
+ * record store to one of the supported file types.
  *
  * @author Jim Prantzalos
  * @version 1.0
@@ -64,13 +65,14 @@ public class ExportService extends Service<Void> {
     private Exporter writer;
 
     /**
-     * Export the contents of the <code>RecordStore</code> to one of the supported file types.
-     * If the file extension is "csv", a {@link CsvExporter} is used.
-     * If the file extension is "xls", a {@link ExcelExporter} is used.
-     * If the file extension is "xml", a {@link XmlExporter} is used.
+     * Constructs an ExportService instance with an export file and the data required to run the service.
+     * <p>
+     * If the export file extension ends with ".csv", then {@link CsvExporter} is used.<br/>
+     * If the export file extension ends with ".xls", then {@link ExcelExporter} is used.<br/>
+     * If the export file extension ends with ".xml", then {@link XmlExporter} is used.
      *
      * @param exportFile the file to export to.
-     * @param serviceInfo the record store and associated data.
+     * @param serviceInfo the data associated with this service instance.
      */
     public ExportService(final File exportFile, final ServiceInfo serviceInfo) {
         this.exportFile = exportFile;
@@ -90,6 +92,11 @@ public class ExportService extends Service<Void> {
         }
     }
 
+    /**
+     * Returns the data associated with this service instance. This data can be shared across services.
+     *
+     * @return the data associated with this service instance.
+     */
     public ServiceInfo getServiceInfo() {
         return serviceInfo;
     }

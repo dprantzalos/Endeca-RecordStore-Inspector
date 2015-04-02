@@ -42,26 +42,56 @@ public class AppSettings {
     private int casServerPort = CAS_SERVER_DEFAULT_PORT;
     private boolean casServerSSLEnabled = CAS_SERVER_SSL_ENABLED;
 
+    /**
+     * Returns the CAS Server hostname.
+     *
+     * @return the CAS Server hostname.
+     */
     public static String getCasServerHost() {
         return instance.casServerHost;
     }
 
+    /**
+     * Sets the the CAS Server hostname.
+     *
+     * @param casServerHost the CAS Server hostname.
+     */
     public static void setCasServerHost(final String casServerHost) {
         instance.casServerHost = casServerHost;
     }
 
+    /**
+     * Returns the CAS Server port number.
+     *
+     * @return the CAS Server port number.
+     */
     public static int getCasServerPort() {
         return instance.casServerPort;
     }
 
+    /**
+     * Sets the CAS Server port number.
+     *
+     * @param casServerPort the CAS Server port number.
+     */
     public static void setCasServerPort(final int casServerPort) {
         instance.casServerPort = casServerPort;
     }
 
+    /**
+     * Returns <code>true</code> if CAS Server is SSL enabled.
+     *
+     * @return <code>true</code> if CAS Server is SSL enabled.
+     */
     public static boolean isCasServerSSLEnabled() {
         return instance.casServerSSLEnabled;
     }
 
+    /**
+     * Sets whether the CAS Server is SSL enabled or not.
+     *
+     * @param casServerSSLEnabled <code>true</code> if SSL is enabled; <code>false</code> otherwise.
+     */
     public static void setCasServerSSLEnabled(boolean casServerSSLEnabled) {
         instance.casServerSSLEnabled = casServerSSLEnabled;
     }

@@ -65,10 +65,20 @@ public class RecordReaderService extends Service<TableView<ObservableList<String
     private ServiceInfo serviceInfo;
     private TableView<ObservableList<StringProperty>> tableView;
 
+    /**
+     * Constructs a RecordReaderService instance with the data required to run the service.
+     *
+     * @param serviceInfo the data associated with this service instance.
+     */
     public RecordReaderService(final ServiceInfo serviceInfo) {
         this.serviceInfo = serviceInfo;
     }
 
+    /**
+     * Returns the data associated with this service instance. This data can be shared across services.
+     *
+     * @return the data associated with this service instance.
+     */
     public ServiceInfo getServiceInfo() {
         return serviceInfo;
     }
