@@ -1,0 +1,28 @@
+.mnemonic-underline {
+    -fx-stroke: -fx-text-base-color;
+}
+
+.popup-dialog {
+    -fx-padding: 5 10 5 10;
+    -fx-background-color: #f2f2f2;
+}
+
+.popup-dialog .button-panel {
+    -fx-padding: 5 0 10 0;
+    -fx-spacing: 8;
+}
+
+.popup-dialog .table-view .column-header .label {
+    -fx-alignment: center-left;
+    -fx-padding: 0 0 0 2;
+}
+
+.popup-dialog .text-heading {
+    -fx-font-weight: bold;
+}
+
+#aboutPane .title-text {
+    -fx-font-weight: bold;
+    -fx-font-size: 20;
+}
+

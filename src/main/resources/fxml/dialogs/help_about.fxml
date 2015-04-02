@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="aboutPane" xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.oracle.ateam.endeca.tools.rsi.component.AboutDialog"
+        stylesheets="/css/styles.css"
+        styleClass="popup-dialog">
+
+    <top>
+        <VBox alignment="BASELINE_CENTER" spacing="6">
+            <padding>
+                <Insets top="0" right="10" bottom="10" left="10"/>
+            </padding>
+            <children>
+                <Label text="Endeca RecordStore Inspector" styleClass="title-text"/>
+                <Label text="Version 1.0"/>
+                <Label text="Copyright (c) 2015, Oracle Corporation"/>
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="0" left="10"/>
+            </padding>
+            <children>
+                <Label>
+                    An open-source utility for viewing Endeca Record Stores.
+                </Label>
+                <AnchorPane minWidth="415" minHeight="175" maxWidth="415" maxHeight="175" prefWidth="415" prefHeight="175">
+                    <children>
+                        <TableView fx:id="aboutTable" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+                            <columns>
+                                <TableColumn prefWidth="120" text="Property" fx:id="propertyId"/>
+                                <TableColumn prefWidth="680" text="Value" fx:id="valueId"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+                <Label text="Built by Oracle A-TEAM"/>
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="BASELINE_CENTER" styleClass="button-panel">
+            <padding>
+                <Insets top="10" right="0" bottom="10" left="10"/>
+            </padding>
+            <Button fx:id="okButton" defaultButton="true" mnemonicParsing="false" text="OK" onAction="#onOkButtonClicked"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import com.oracle.ateam.endeca.tools.rsi.javafx.LimitedTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.oracle.ateam.endeca.tools.rsi.component.SettingsDialog"
+        stylesheets="/css/styles.css"
+        styleClass="popup-dialog">
+
+    <top>
+        <VBox alignment="BASELINE_LEFT" spacing="10">
+            <padding>
+                <Insets top="6" right="10" bottom="0" left="10"/>
+            </padding>
+            <children>
+                <Label text="CAS Server Settings" styleClass="text-heading"/>
+                <Separator/>
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox alignment="BASELINE_LEFT" spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="0" left="10"/>
+            </padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="CAS Server Host: "/>
+                    <TextField fx:id="casServerHost"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="CAS Server Port: "/>
+                    <LimitedTextField fx:id="casServerPort" constraint="[0-9]*"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="CAS Server SSL Enabled: "/>
+                    <CheckBox fx:id="casServerSSLEnabled"/>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="BASELINE_CENTER" styleClass="button-panel">
+            <padding>
+                <Insets top="0" right="10" bottom="10" left="10"/>
+            </padding>
+            <Button fx:id="okButton" defaultButton="true" mnemonicParsing="false" text="OK" onAction="#onOkButtonClicked"/>
+            <Button fx:id="cancelButton" defaultButton="false" mnemonicParsing="false" text="Cancel" onAction="#onCancelButtonClicked"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

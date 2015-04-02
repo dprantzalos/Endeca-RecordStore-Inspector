@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.oracle.ateam.endeca.tools.rsi.component.FileOpenDialog"
+        stylesheets="/css/styles.css"
+        styleClass="popup-dialog">
+
+    <top>
+        <VBox alignment="CENTER_LEFT" spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="0" left="10"/>
+            </padding>
+            <children>
+                <Label text="Choose a RecordStore to inspect:"/>
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <children>
+                <AnchorPane minWidth="500" minHeight="200" maxWidth="500" maxHeight="200" prefWidth="500" prefHeight="200">
+                    <children>
+                        <TableView fx:id="tableView" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+                            <columns>
+                                <TableColumn prefWidth="380" text="Name" fx:id="name"/>
+                                <TableColumn prefWidth="100" text="Status" fx:id="status"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="10">
+            <padding>
+                <Insets top="2" right="10" bottom="10" left="10"/>
+            </padding>
+            <Button fx:id="openRecordStoreButton" defaultButton="true" mnemonicParsing="false" text="Open RecordStore" onAction="#onOpenRecordStoreClicked"/>
+            <Button fx:id="cancelButton" defaultButton="false" mnemonicParsing="false" text="Cancel" onAction="#onCancelButtonClicked"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

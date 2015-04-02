@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import com.oracle.ateam.endeca.tools.rsi.component.RecordStoreTab?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<fx:root type="com.oracle.ateam.endeca.tools.rsi.component.RecordStoreTab" xmlns:fx="http://javafx.com/fxml">
+
+    <BorderPane fx:id="borderPane" stylesheets="/css/styles.css">
+        <top>
+            <HBox alignment="CENTER_LEFT" spacing="10" maxWidth="Infinity">
+                <padding>
+                    <Insets top="5" right="5" bottom="5" left="5"/>
+                </padding>
+                <children>
+                    <Label text="Records found: "/>
+                    <Label fx:id="recordCountLabel" text="0"/>
+                    <Separator orientation="VERTICAL"/>
+                    <HBox alignment="CENTER_RIGHT" spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="RegEx Match " style="-fx-font-weight: bold"/>
+                        <Label text=" Column text:"/>
+                        <TextField fx:id="filterColumnText"/>
+                        <Label text="Value text:"/>
+                        <TextField fx:id="filterValueText"/>
+                        <Button fx:id="filterButton" text="Apply Filter" defaultButton="true" onAction="#onApplyFilterButtonClicked"/>
+                    </HBox>
+                </children>
+            </HBox>
+        </top>
+        <center>
+            <TableView fx:id="tableView"/>
+        </center>
+    </BorderPane>
+
+</fx:root>

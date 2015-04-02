@@ -1,0 +1,75 @@
+apply plugin: 'java'
+apply from: 'javafx.plugin'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.1'
+    }
+}
+apply plugin: 'com.github.johnrengelman.shadow'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile "com.endeca:component-manager-api:11.1.0"
+    compile 'com.endeca:itl-api-common:11.1.0'
+    compile 'com.endeca:itl-common:11.1.0'
+    compile 'com.endeca:recordstore-api:11.1.0'
+    compile 'com.endeca:service-locator:11.1.0'
+    compile 'net.sourceforge.jexcelapi:jxl:2.6.12'
+    compile 'org.slf4j:slf4j-api:1.5.2'
+    runtime 'com.google.collections:google-collections:1.0'
+    runtime 'com.oracle:http_client:11.1.1'
+    runtime 'com.oracle.webservices:orawsdl:11.1.1'
+    runtime 'com.sun.xml.bind:jaxb-impl:2.1.12'
+    runtime 'com.sun.xml.fastinfoset:FastInfoset:1.2.7'
+    runtime 'commons-codec:commons-codec:1.3'
+    runtime 'commons-httpclient:commons-httpclient:3.1'
+    runtime 'commons-io:commons-io:1.4'
+    runtime 'commons-logging:commons-logging:1.1.1'
+    runtime 'log4j:log4j:1.2.15'
+    runtime 'org.apache.cxf:cxf-api:2.6.1'
+    runtime 'org.apache.cxf:cxf-rt-bindings-soap:2.6.1'
+    runtime 'org.apache.cxf:cxf-rt-core:2.6.1'
+    runtime 'org.apache.cxf:cxf-rt-databinding-jaxb:2.6.1'
+    runtime 'org.apache.cxf:cxf-rt-frontend-jaxws:2.6.1'
+    runtime 'org.apache.cxf:cxf-rt-frontend-simple:2.6.1'
+    runtime 'org.apache.cxf:cxf-rt-transports-http:2.6.1'
+    runtime 'org.apache.ws.xmlschema:xmlschema-core:2.0.2'
+    runtime 'org.codehaus.woodstox:stax2-api:3.1.1'
+    runtime 'org.codehaus.woodstox:woodstox-core-asl:4.1.1'
+    runtime 'org.slf4j:slf4j-log4j12:1.5.2'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+if (!JavaVersion.current().isJava8Compatible()) {
+    throw new GradleException("Java 8 required, ${System.getProperty("java.version")} found")
+}
+
+def mainClassName = 'com.oracle.ateam.endeca.tools.rsi.RecordStoreInspector'
+
+javafx {
+    mainClass = mainClassName
+    jfxrtDir = 'C:/java/jdk1.8.0_40-x64'
+    jvmArgs = ['-Xmx1024m', '-XX:+UseG1GC', '-XX:+AggressiveOpts']
+    systemProperties = ['prism.disableRegionCaching':'true']
+}
+
+import com.github.jengelman.gradle.plugins.shadow.transformers.AppendingTransformer
+shadowJar{
+    manifest{
+        attributes 'Main-Class': mainClassName;
+    }
+    transform(AppendingTransformer) {
+        resource = 'META-INF/cxf/bus-extensions.txt'
+    }
+}

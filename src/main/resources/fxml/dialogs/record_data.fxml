@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.oracle.ateam.endeca.tools.rsi.component.RecordDetailsDialog"
+        stylesheets="/css/styles.css"
+        styleClass="popup-dialog">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <padding>
+                <Insets top="5" right="5" bottom="5" left="5"/>
+            </padding>
+            <children>
+                <Label text="Columns found: "/>
+                <Label fx:id="columnCountLabel" text="0"/>
+                <Separator orientation="VERTICAL"/>
+                <HBox alignment="CENTER_RIGHT" spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="RegEx Match " style="-fx-font-weight: bold"/>
+                    <Label text="text:"/>
+                    <TextField fx:id="filterText"/>
+                    <Button fx:id="filterButton" text="Apply Filter" defaultButton="true" onAction="#onApplyFilterButtonClicked"/>
+                </HBox>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="0" left="10"/>
+            </padding>
+            <AnchorPane minWidth="640" minHeight="360" maxWidth="640" maxHeight="360" prefWidth="640" prefHeight="360">
+                <children>
+                    <TableView fx:id="tableView" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+                        <columns>
+                            <TableColumn text="Name" fx:id="nameId"/>
+                            <TableColumn text="Value" fx:id="valueId"/>
+                        </columns>
+                    </TableView>
+                </children>
+            </AnchorPane>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox alignment="BASELINE_CENTER" styleClass="button-panel">
+            <padding>
+                <Insets top="10" right="0" bottom="10" left="10"/>
+            </padding>
+            <Button fx:id="closeButton" mnemonicParsing="false" text="Close" onAction="#onCloseButtonClicked"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
