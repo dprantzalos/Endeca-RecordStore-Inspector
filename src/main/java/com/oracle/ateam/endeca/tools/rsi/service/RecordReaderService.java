@@ -51,6 +51,7 @@ import java.util.regex.Pattern;
 
 import static com.oracle.ateam.endeca.tools.rsi.util.EndecaHelper.close;
 import static com.oracle.ateam.endeca.tools.rsi.util.EndecaHelper.makeString;
+import static com.oracle.ateam.endeca.tools.rsi.util.EndecaHelper.rollbackTransaction;
 import static com.oracle.ateam.endeca.tools.rsi.util.JavaHelper.sortByValue;
 
 /**
@@ -111,6 +112,7 @@ public class RecordReaderService extends Service<TableView<ObservableList<String
                 final ObservableList<ObservableList<StringProperty>> rows = FXCollections.observableArrayList();
                 ObservableList<StringProperty> row;
                 RecordReader reader = null;
+                TransactionId txId = null;
                 boolean incomplete;
 
                 updateMessage(serviceInfo.getRecordStoreTab().getText() + " (0)");
@@ -120,7 +122,7 @@ public class RecordReaderService extends Service<TableView<ObservableList<String
                     if (recStoreDataFile != null) {
                         reader = new RecordReader(RecordIOFactory.createRecordReader(recStoreDataFile));
                     } else {
-                        TransactionId txId = recStore.startTransaction(TransactionType.READ);
+                        txId = recStore.startTransaction(TransactionType.READ);
                         if (serviceInfo.isBaselineRead()) {
                             reader = new RecordReader(RecordStoreReader.createBaselineReader(recStore, txId, genId));
                         } else {
@@ -144,6 +146,7 @@ public class RecordReaderService extends Service<TableView<ObservableList<String
                     log.error("Unable to process all records (count=" + (reader != null ? reader.getCount() : 0) + ").", e);
                 }
                 finally {
+                    rollbackTransaction(recStore, txId);
                     close(reader);
                 }
                 tableView.setItems(rows);

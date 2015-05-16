@@ -48,7 +48,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import static com.oracle.ateam.endeca.tools.rsi.util.EndecaHelper.close;
 import static com.oracle.ateam.endeca.tools.rsi.util.EndecaHelper.makeString;
+import static com.oracle.ateam.endeca.tools.rsi.util.EndecaHelper.rollbackTransaction;
 
 /**
  * Service for exporting record stores to file. This service exports the contents of a selected
@@ -110,6 +112,7 @@ public class ExportService extends Service<Void> {
                 final RecordStore recStore = serviceInfo.getRecordStore();
                 final GenerationId genId = serviceInfo.getGenerationId();
                 final File recStoreDataFile = serviceInfo.getRecordStoreDataFile();
+                TransactionId txId = null;
                 boolean incomplete;
 
                 updateMessage(exportFile.getName() + " (0)");
@@ -118,7 +121,7 @@ public class ExportService extends Service<Void> {
                         reader = new RecordReader(RecordIOFactory.createRecordReader(recStoreDataFile));
                     }
                     else {
-                        TransactionId txId = recStore.startTransaction(TransactionType.READ);
+                        txId = recStore.startTransaction(TransactionType.READ);
                         if (serviceInfo.isBaselineRead()) {
                             reader = new RecordReader(RecordStoreReader.createBaselineReader(recStore, txId, genId));
                         } else {
@@ -141,7 +144,8 @@ public class ExportService extends Service<Void> {
                     log.error("Unable to process all records (count=" + (reader != null ? reader.getCount() : 0) + ").", e);
                 }
                 finally {
-                    EndecaHelper.close(reader);
+                    close(reader);
+                    rollbackTransaction(recStore, txId);
                     try {
                         writer.close();
                     } catch (IOException | WriteException e) {

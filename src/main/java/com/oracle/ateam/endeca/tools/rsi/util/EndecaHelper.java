@@ -115,6 +115,20 @@ public class EndecaHelper {
     }
 
     /**
+     * Rollback the transaction for the specified RecordStore, and log any errors.
+     */
+    public static void rollbackTransaction(final RecordStore recordStore, final TransactionId txId) {
+        if (recordStore !=null && txId != null) {
+            try {
+                log.debug("Rolling back transaction.");
+                recordStore.rollbackTransaction(txId);
+            } catch (RecordStoreException e) {
+                log.error("Failed to roll back transaction.", e);
+            }
+        }
+    }
+
+    /**
      * Flattens out the given array of <code>PropertyValue</code> objects into a delimited string,
      * using the specified delimiter symbol to separate values.
      *
